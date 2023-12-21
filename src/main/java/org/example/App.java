@@ -11,18 +11,32 @@ public class App
     public static void main( String[] args )
     {
         System.out.println("Task 1: " + inputNumbersSumCheck( 2,11) );
+
         System.out.print("Task 2: ");
         numberSign(0) ;
+
         System.out.println("Task 3: " + isNegative(5));
+
         System.out.println("Task 4: ");
         printStringNTimes("Java", 3);
+
         System.out.println("Task 5: " + isLeapYear(2000));
+
         System.out.print("Task 6: ");
+
         replaceZeroesAndOne();
         System.out.print("Task 7: ");
         fillArray();
+
         System.out.print("Task 8: ");
         increaseSmallNumberInArray();
+
+        System.out.print("Task 9: ");
+        System.out.println();
+        modifyDiagonalInArray();
+
+        System.out.print("Task 10: ");
+        System.out.println(Arrays.toString(fillCreatedArray(5, 5)));
 
     }
     //Task 1
@@ -90,5 +104,21 @@ public class App
                 {0,0,0,0,0}
         };
 
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if(i == j || j == array[i].length - i - 1){
+                    array[i][j] = 1;
+                }
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    //Task 10
+    public static int[] fillCreatedArray(int len, int initialValue){
+        int[] result = new int[len];
+        Arrays.fill(result,initialValue);
+        return result;
     }
 }
