@@ -7,7 +7,6 @@ public class Person {
     private String phone;
     private int salary;
     private int age;
-
     public Person(String name, String jobTitle, String email, String phone, int salary, int age) {
         this.name = name;
         this.jobTitle = jobTitle;
@@ -16,7 +15,6 @@ public class Person {
         this.salary = salary;
         this.age = age;
     }
-
     @Override
     public String toString() {
         return "Person{" +

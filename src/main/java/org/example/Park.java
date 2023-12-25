@@ -12,13 +12,11 @@ public class Park {
         private String name;
         private String workingHours;
         private int ticketPrice;
-
         public Amusement(String name, String workingHours, int ticketPrice) {
             this.name = name;
             this.workingHours = workingHours;
             this.ticketPrice = ticketPrice;
         }
-
         @Override
         public String toString() {
             return "Amusement{" +
@@ -28,7 +26,6 @@ public class Park {
                     '}';
         }
     }
-
     @Override
     public String toString() {
         return "Park{" +
