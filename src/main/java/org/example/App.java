@@ -8,22 +8,22 @@ import java.util.Arrays;
 public class App {
     public static void main(String[] args) {
         System.out.println("Task 1-2 : ");
-        Person IvanIvanov = new Person("Ivanov Ivan", "Engineer",
+        Person person1 = new Person("Ivanov Ivan", "Engineer",
                 "ivivan@mailbox.com", "892312312", 30000, 30);
-        Person PetrSidorov = new Person("Petr Sidorov", "Manager",
+        Person person2 = new Person("Petr Sidorov", "Manager",
                 "ptpetrov@mailbox.com", "893211223", 33000, 27);
-        Person AnnaKarenina = new Person("Anna Karenina", "Lawyer",
+        Person person3 = new Person("Anna Karenina", "Lawyer",
                 "annkaren@mailbox.com", "832912213", 15000, 23);
-        Person SidorPetrov = new Person("Sidor Petrov", "SEO",
+        Person person4 = new Person("Sidor Petrov", "SEO",
                 "sipet@mailbox.com", "829312321", 30000, 32);
-        Person RomanEgorov = new Person("RomanEgorov", "HR",
+        Person person5 = new Person("RomanEgorov", "HR",
                 "rmego@mailbox.com", "892123312", 25000, 22);
         Person[] employee = new Person[5];
-        employee[0] = IvanIvanov;
-        employee[1] = PetrSidorov;
-        employee[2] = AnnaKarenina;
-        employee[3] = SidorPetrov;
-        employee[4] = RomanEgorov;
+        employee[0] = person1;
+        employee[1] = person2;
+        employee[2] = person3;
+        employee[3] = person4;
+        employee[4] = person5;
         System.out.println(Arrays.toString(employee));
 
         System.out.println("Task 3 : ");
