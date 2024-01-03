@@ -4,10 +4,10 @@ import static org.example.Cat.CatBowl.getCapacity;
 
 public class Cat extends Animal {
     private static final int CAT_CAN_EAT = 10;
+    public static final int CAT_MAX_RUN = 200;
     private static int catCount = 0;
     private String name;
     private boolean satiety;
-
 
     public Cat(String name) {
         super(name);
@@ -37,14 +37,14 @@ public class Cat extends Animal {
 
     @Override
     public void run(int distance) {
-        if (distance < 200 && distance > 0) {
-            System.out.printf("Кот %s пробежал %dм.", name, distance);
-        } else if (distance < 0 && distance > -200) {
-            System.out.printf("Кот %s пробежал %dм в другую сторону.", name, -distance);
+        if (distance < CAT_MAX_RUN && distance > 0) {
+            System.out.printf("Кот %s пробежал %d м.", name, distance);
+        } else if (distance < 0 && distance > -CAT_MAX_RUN) {
+            System.out.printf("Кот %s пробежал %d м в другую сторону.", name, -distance);
         } else if (distance == 0) {
             System.out.printf("Кот %s никуда не побежал.", name);
         } else {
-            System.out.printf("Кот %s может пробежать только 200м, он остался на месте.", name);
+            System.out.printf("Кот %s может пробежать только %d м, он остался на месте.", name, CAT_MAX_RUN);
         }
         System.out.println();
     }
@@ -72,6 +72,7 @@ public class Cat extends Animal {
 
         public CatBowl(int capacity) {
             CatBowl.capacity = capacity;
+            System.out.printf("Создана миска с %d условными единицами еды.\n", capacity);
         }
 
         public static int getCapacity() {
@@ -84,17 +85,14 @@ public class Cat extends Animal {
 
         public void fillCatBowl(int foodValue) {
             setCapacity(foodValue + getCapacity());
-            System.out.println("Миска наполнена");
+            System.out.printf("В миску положили %d еды.\n", foodValue);
         }
 
         public static void removeFoodFromCatBowl(int catEatsValue) {
-            if (catEatsValue < getCapacity()) {
+            if (catEatsValue <= getCapacity()) {
                 setCapacity(getCapacity() - catEatsValue);
-
             }
         }
-
-
     }
 }
 

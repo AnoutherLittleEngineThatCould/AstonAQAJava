@@ -1,8 +1,6 @@
 package org.example;
 
 abstract class Animal {
-
-
     private static int animalCount;
     public String name;
 
