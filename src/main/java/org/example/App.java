@@ -14,8 +14,22 @@ public class App {
                 words) {
             uniqWordsFrequency.put(s, !uniqWordsFrequency.containsKey(s) ? 1 : uniqWordsFrequency.get(s) + 1);
         }
+        System.out.println("Все слова, которые есть в массиве");
+        for (String s :
+                uniqWordsFrequency.keySet()) {
+            System.out.print(s + "; ");
+        }
+        System.out.println();
+        System.out.println("Слова, которые встречаются только один раз");
+        for (String s :
+                uniqWordsFrequency.keySet()) {
+            if (uniqWordsFrequency.get(s) == 1)
+                System.out.print(s + "; ");
+        }
+        System.out.println();
+        System.out.println("Сколько раз слова встречаются в массиве:");
         System.out.println(uniqWordsFrequency);
-        //Task
+        //Task 2
         System.out.println("Task 2: ");
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.add(Map.of("Ivanov", "+123456789"));
