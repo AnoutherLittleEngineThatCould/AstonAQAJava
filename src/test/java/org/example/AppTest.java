@@ -1,38 +1,37 @@
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertThrows;
+
+public class AppTest {
+
+    @DataProvider
+    public Object[][] parseData() {
+        return new Object[][]{
+                {1L, 0},
+                {2L, 2},
+                {479001600L, 12},
+        };
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test(dataProvider = "parseData")
+    void multiTest(Long expected, int input) {
+        assertEquals(expected, Factorial.count(input));
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void exceptionTesting() {
+        assertThrows(
+                () -> Factorial.count(-3)
+        );
     }
+
+    @Test(expectedExceptions = { ArithmeticException.class }, expectedExceptionsMessageRegExp = ".*Факториа́л.*")
+    public void exceptionTestTwo() {
+        Factorial.count(-10);
+    }
+
 }
