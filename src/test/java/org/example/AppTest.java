@@ -1,38 +1,34 @@
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Unit test for simple App.
+ * @author AnoutherLittleEngineThatCould
+ * @link github.com/AnoutherLittleEngineThatCould
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+class FactorialTest {
+
+    @ParameterizedTest(name = "{index} test {1}! = {0}")
+    @CsvSource(value = {"1, 1", "2, 2", "479001600, 12"})
+    void multiTest(Long expected, int input) {
+        Assertions.assertEquals(expected, Factorial.count(input));
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    @Test
+    void exceptionTesting() {
+        Exception thrown = assertThrows(
+                ArithmeticException.class,
+                () -> Factorial.count(-10)
+        );
+        assertEquals("Факториа́л — функция, определённая на множестве неотрицательных целых чисел",
+                thrown.getMessage());
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
