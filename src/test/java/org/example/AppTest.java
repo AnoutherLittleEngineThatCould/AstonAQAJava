@@ -24,7 +24,6 @@ public class AppTest {
 
     @Test
     void exceptionTesting() {
-
         assertThrows(
                 () -> Factorial.count(-3)
         );
